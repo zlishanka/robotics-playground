@@ -97,14 +97,14 @@ Joint i | θᵢ  | dᵢ    | aᵢ    | αᵢ
 
 Transformation Matrix:  
 For each joint, the transformation matrix is:  
-
+```
 T = [
     cos(θ)  -sin(θ)cos(α)   sin(θ)sin(α)   acos(θ)
     sin(θ)   cos(θ)cos(α)  -cos(θ)sin(α)   asin(θ)
     0        sin(α)         cos(α)          d
     0        0              0               1
 ]
-
+```
 Practical Application:  
 To find end-effector position:  
 
@@ -121,6 +121,7 @@ Extract position from final matrix
 
 ### Example of end-effector position for our 3-DOF robot using DH parameters 
 
+```
 Joint 1 (Base rotation):  
 
 T₁ = [
@@ -151,19 +152,18 @@ T₃ = [
 Final Transformation Matrix  
 Multiply matrices in sequence:  
 
-```
+
 T_total = T₁ * T₂ * T₃  
-```
+
 
 The resulting matrix will be of the form:  
-
 T_total = [
     r₁₁   r₁₂   r₁₃   x
     r₂₁   r₂₂   r₂₃   y
     r₃₁   r₃₂   r₃₃   z
     0     0     0     1
 ]
-
+```
 The position components (x, y, z) are:
 
 ```
