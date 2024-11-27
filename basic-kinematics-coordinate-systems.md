@@ -4,6 +4,8 @@
 
 When pointing your right thumb along the positive z-axis, your fingers naturally curl in the direction from the positive x-axis toward the positive y-axis.
 
+![plot](./Right-hand-coordinate.png)
+
 This convention is fundamental in:
 
 Classical mechanics  
