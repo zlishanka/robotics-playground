@@ -68,12 +68,27 @@ cos(θ₂) = (x² + y² - L₁² - L₂²)/(2L₁L₂)
 
 Denavit-Hartenberg (DH) parameters are a standardized method in robotics to describe the geometric relationship between consecutive links of a robot manipulator by assigning coordinate frames to each link, using four key parameters: θ (joint angle), d (link offset), α (link twist), and a (link length), which allows for easy calculation of the robot's forward kinematics and inverse kinematics through transformation matrices.  
 
+[Introduction of DH parameters](https://www.youtube.com/watch?v=rA9tm0gTln8)
+
+Base frame: genetically, "previous joint"  
+Z-axis: points to axis of rotation or axis of translation prismatic joint  
+X-axis: for base frame is a free choice, constrianed for subsequent joints  
+Y-axis: is now contrained to complete right-hand coordinate frame  
+
+For added joint connected to the base frame,  DH parameters can be derived to determine the transformation between them  
+Z-axis: again points to axis of rotation or axis of translation prismatic joint  
+X-axis: points along the `commmon normal` (orthogonal to both vectors, also shortest line between them) between these `Z axes` and has its origin at the intersection of new Z-axis  
+        notice that origin is not at the center of the actuator. THe origin may be in "open space".  
+
+With these joint axes, four parameters specify the joint-to-joint transformation.
+
+
 ### DH Parameters Definition
 
-θ (theta): Joint angle about Z axis
-d: Offset along Z axis
-a: Length along X axis
-α (alpha): Twist angle about X axis
+θ (theta): Joint angle about Z axis, the angle that previous Z need rotate to align its X with the new origin  
+d: Offset along Z axis, depth (from origin to common normal) along the previous joint's Z axis  
+a: Length along X axis,  distance along the rotated X axis, alternatively, radius of rotation about previous Z  
+α (alpha): Twist angle  about X axis, rotates about the new X axis to put Z in its desired orientation  
 
 ### Steps to Assign DH Parameters
 
